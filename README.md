@@ -1,11 +1,58 @@
 # 🏦 Banking Application - Backend
 
+<<<<<<< HEAD
 A comprehensive, secure, Spring Boot-based backend REST API for a full-featured banking system. This application provides all the server-side logic for managing user accounts, transactions, loans, fixed deposits, cards, beneficiaries, and support tickets, with enterprise-grade security features.
+=======
+A full-featured banking management application built with Spring Boot backend and React frontend. Includes JWT authentication, role-based access control, fraud detection, and comprehensive banking operations.
 
----
+![Java 21](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.3-green)
+![React](https://img.shields.io/badge/React-18-blue)
+![Vite](https://img.shields.io/badge/Vite-5-purple)
+
+## Table of Contents
+
+- [Features](#features)
+- [Architecture](#architecture)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Default Credentials](#default-credentials)
+- [API Endpoints](#api-endpoints)
+- [Documentation](#documentation)
+>>>>>>> 39b26be8 (update application code)
+
+## Features
+
+### Customer Features
+- Account management (Savings, Current)
+- Transaction processing (Deposit, Withdraw, Transfer)
+- Beneficiary management with verification
+- Fixed deposits with tiered interest rates
+- Loan applications and tracking
+- Debit/Credit card management
+- Support ticket system
+- AI chatbot assistant
+
+### Admin Features
+- Dashboard with real-time statistics
+- Customer management (view, freeze/unfreeze accounts)
+- Account oversight
+- Flagged transaction review (fraud detection)
+- Comprehensive reports
+- Support ticket management
+
+### Security Features
+- JWT-based authentication
+- Role-Based Access Control (RBAC)
+- Multi-Factor Authentication (MFA) support
+- Fraud detection system
+- Rate limiting on failed login attempts
+- Password encryption with BCrypt
 
 ## 📚 Table of Contents
 
+<<<<<<< HEAD
 1. [Project Overview](#-project-overview)
 2. [Tech Stack](#-tech-stack)
 3. [Project Structure (Explained Step-by-Step)](#-project-structure-explained-step-by-step)
@@ -215,9 +262,133 @@ Before you begin, ensure you have the following installed:
 ---
 
 ## 🛠️ Setup Instructions (Step-by-Step)
+=======
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      Frontend (React)                        │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │  Login   │  │Dashboard │  │  Admin   │  │  Other   │   │
+│  │  Page    │  │  Pages   │  │  Panel   │  │  Pages   │   │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
+│                         │ Axios API                         │
+└─────────────────────────┼───────────────────────────────────┘
+                          │ HTTP (port 3002)
+                          ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Backend (Spring Boot)                     │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │              Security Layer (JWT + Spring Security)   │  │
+│  └──────────────────────────────────────────────────────┘  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │   Auth   │  │ Account  │  │  Admin   │  │  Other   │   │
+│  │Controller│  │Controller│  │Controller│  │Controllers│  │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │  Auth    │  │ Account  │  │  Admin   │  │  Other   │   │
+│  │ Service  │  │ Service  │  │ Service  │  │ Services │   │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
+│                         │ JPA Repository                    │
+└─────────────────────────┼───────────────────────────────────┘
+                          │
+                          ▼
+                    ┌───────────┐
+                    │  H2/MySQL │
+                    │  Database │
+                    └───────────┘
+```
+
+## Tech Stack
+
+### Backend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Java | 21 | Runtime |
+| Spring Boot | 3.4.3 | Application framework |
+| Spring Security | 6.x | Authentication & Authorization |
+| Spring Data JPA | 3.x | Data persistence |
+| JJWT | 0.12.5 | JWT token handling |
+| H2 Database | - | In-memory development database |
+| MySQL | 8.x | Production database (optional) |
+| Lombok | 1.18.38 | Boilerplate reduction |
+| Maven | - | Build management |
+
+### Frontend
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React | 18.2 | UI framework |
+| Vite | 5.x | Build tool & dev server |
+| React Router | 6.x | Client-side routing |
+| Axios | 1.6 | HTTP client |
+| React Bootstrap | 2.9 | UI components |
+| Chart.js / Recharts | - | Data visualization |
+| Framer Motion | 12.x | Animations |
+| Lucide React | 1.x | Icon library |
+
+## Project Structure
+
+```
+Spring java/
+├── myapp/                          # Backend (Spring Boot)
+│   ├── src/main/java/com/example/
+│   │   └── banking/
+│   │       ├── account/            # Account management
+│   │       ├── admin/              # Admin operations
+│   │       ├── beneficiary/        # Beneficiary management
+│   │       ├── card/               # Card management
+│   │       ├── common/             # Shared utilities & configs
+│   │       ├── fd/                 # Fixed deposits
+│   │       ├── loan/               # Loan management
+│   │       ├── security/           # JWT & authentication
+│   │       ├── support/            # Support tickets
+│   │       ├── transaction/        # Transaction processing
+│   │       ├── user/               # User management
+│   │       └── BankingApplication.java
+│   ├── src/main/resources/
+│   │   └── application.properties  # Configuration
+│   └── pom.xml                     # Maven dependencies
+│
+├── frontend/                       # Frontend (React + Vite)
+│   ├── src/
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── Layout.jsx          # Main app layout
+│   │   │   ├── Primitives.jsx      # Base UI primitives
+│   │   │   └── ToastSystem.jsx     # Notification system
+│   │   ├── pages/                  # Page components
+│   │   │   ├── Login.jsx           # Login page
+│   │   │   ├── Register.jsx        # Registration page
+│   │   │   ├── Dashboard.jsx       # Customer dashboard
+│   │   │   ├── AdminDashboard.jsx  # Admin dashboard
+│   │   │   ├── Accounts.jsx        # Account management
+│   │   │   ├── Transactions.jsx    # Transaction history
+│   │   │   ├── Beneficiaries.jsx   # Beneficiary management
+│   │   │   ├── Loans.jsx           # Loan applications
+│   │   │   ├── FixedDeposits.jsx   # Fixed deposit management
+│   │   │   ├── Cards.jsx           # Card management
+│   │   │   ├── SupportTickets.jsx  # Support tickets
+│   │   │   └── ChatBot.jsx         # AI assistant
+│   │   ├── theme/                  # Theme configuration
+│   │   ├── api.js                  # API client & endpoints
+│   │   ├── App.jsx                 # Main app component
+│   │   └── main.jsx                # Entry point
+│   ├── package.json                # NPM dependencies
+│   └── vite.config.js              # Vite configuration
+│
+└── README.md                       # This file
+```
+
+## Getting Started
+
+### Prerequisites
+- Java 21 or higher
+- Node.js 18+ and npm
+- Maven (or use included wrapper)
+
+### Backend Setup
+>>>>>>> 39b26be8 (update application code)
 
 ### Step 1: Clone the Repository
 ```bash
+<<<<<<< HEAD
 git clone <repository-url>
 cd Spring\ java/myapp
 ```
@@ -283,9 +454,25 @@ The application will start on **http://localhost:8080**.
 ---
 
 ## ▶️ Running the Application
+=======
+# Navigate to backend directory
+cd myapp
+
+# Run the application (includes Maven wrapper)
+.\mvnw.cmd spring-boot:run
+
+# Or if you have Maven installed globally
+mvn spring-boot:run
+```
+
+The backend starts at `http://localhost:8080`
+
+### Frontend Setup
+>>>>>>> 39b26be8 (update application code)
 
 ### Development Mode
 ```bash
+<<<<<<< HEAD
 # Run with hot-reload (auto-restarts on code changes)
 mvn spring-boot:run -Dspring-boot.run.fork=true
 ```
@@ -579,3 +766,84 @@ This project is for educational/demonstration purposes.
 ---
 
 Built with ❤️ using Spring Boot
+=======
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The frontend starts at `http://localhost:5173` (or port 3002 if configured)
+
+### Verify Installation
+
+```bash
+# Test backend health
+curl http://localhost:8080/api/auth/ping
+
+# Expected response:
+# {"success":true,"message":"pong","data":{...}}
+```
+
+## Default Credentials
+
+| Role | Username | Password | Access |
+|------|----------|----------|--------|
+| Admin | `admin` | `admin123` | Full system access |
+| Customer | `john` | `john123` | Customer dashboard |
+| Customer | `jane` | `jane123` | Customer dashboard |
+
+> **Note:** These credentials are seeded automatically on first startup using H2 in-memory database.
+
+## API Endpoints
+
+### Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| POST | `/api/auth/refresh` | Refresh JWT token |
+| POST | `/api/auth/verify-login-otp` | Verify MFA code |
+| GET | `/api/auth/ping` | Health check |
+
+### Customer APIs
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/accounts` | Get user accounts |
+| GET | `/api/transactions/{accNo}` | Get transaction history |
+| POST | `/api/transactions/deposit` | Deposit money |
+| POST | `/api/transactions/withdraw` | Withdraw money |
+| POST | `/api/transactions/transfer` | Transfer to account |
+| GET | `/api/beneficiaries` | Get beneficiaries |
+| GET | `/api/loans` | Get user loans |
+| GET | `/api/cards` | Get user cards |
+| GET | `/api/fd` | Get fixed deposits |
+
+### Admin APIs
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/admin/dashboard` | Admin dashboard stats |
+| GET | `/api/admin/customers` | List all customers |
+| GET | `/api/admin/accounts` | List all accounts |
+| GET | `/api/admin/flagged-transactions` | Flagged transactions |
+| POST | `/api/admin/customers/{id}/freeze` | Freeze customer |
+| POST | `/api/admin/customers/{id}/unfreeze` | Unfreeze customer |
+| GET | `/api/admin/reports` | Generate reports |
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Admin Guide](./ADMIN_GUIDE.md) | Admin dashboard and operations guide |
+| [Implementation Guide](./IMPLEMENTATION_GUIDE.md) | Step-by-step development process |
+| [Frontend Guide](./FRONTEND_GUIDE.md) | Frontend architecture and components |
+| [Backend Guide](./BACKEND_GUIDE.md) | Backend architecture and APIs |
+
+## License
+
+This project is created for educational purposes.
+>>>>>>> 39b26be8 (update application code)

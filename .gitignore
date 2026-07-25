@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -39,3 +40,6 @@ package-lock.json
 ### Logs ###
 *.log
 backend.log
+=======
+node_modules/
+>>>>>>> 39b26be8 (update application code)
