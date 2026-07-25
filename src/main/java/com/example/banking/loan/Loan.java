@@ -3,6 +3,7 @@ package com.example.banking.loan;
 import com.example.banking.account.Account;
 import com.example.banking.common.LoanStatus;
 import com.example.banking.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Loan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -2,6 +2,7 @@ package com.example.banking.fd;
 
 import com.example.banking.account.Account;
 import com.example.banking.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class FixedDeposit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
